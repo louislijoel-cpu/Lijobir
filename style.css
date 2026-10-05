@@ -1,3 +1,7 @@
+/* =========================================
+   RESET
+========================================= */
+
 * {
     margin: 0;
     padding: 0;
@@ -13,804 +17,120 @@ body {
 body {
     overflow: hidden;
     background: #DDF5E2;
+    font-family: 'Montserrat', sans-serif;
 }
 
-/* Front page */
 
-.front-page {
+/* =========================================
+   COMMON FULL-SCREEN PAGES
+========================================= */
+
+.front-page,
+#birthdayReveal,
+#messageSection,
+#finalSection {
+    position: fixed;
+    inset: 0;
 
     width: 100%;
     height: 100vh;
     height: 100dvh;
 
-    background-image:
-        url("background.png");
-
-    background-size: cover;
-
-    background-position: center;
-
     background-repeat: no-repeat;
-
-    position: relative;
+    background-position: center center;
+    background-size: cover;
 }
 
 
-/* Button layer */
+/* =========================================
+   PAGE 1 — FRONT PAGE
+========================================= */
+
+.front-page {
+    z-index: 1;
+
+    background-image: url("background.png");
+
+    background-position: center center;
+    background-size: cover;
+}
+
+
+/* =========================================
+   FRONT PAGE BUTTON
+========================================= */
 
 .front-overlay {
-
     position: absolute;
-
     inset: 0;
 
     display: flex;
-
     justify-content: center;
-
     align-items: flex-end;
 
-    padding-bottom: 12%;
+    pointer-events: none;
 }
-
-
-/* Interactive button */
 
 #openBtn {
     position: absolute;
 
     left: 50%;
-
-    /* Increase this number to move it down */
-    top: 72%;
+    top: 78%;
 
     transform: translateX(-50%);
 
-    padding: 17px 38px;
+    min-width: 220px;
+    padding: 15px 28px;
 
-    min-width: 245px;
-
-    border: 2px solid white;
-
+    border: 2px solid #ffffff;
     border-radius: 50px;
 
     background: #23452F;
-
-    color: white;
+    color: #ffffff;
 
     font-family: 'Montserrat', sans-serif;
-
-    font-size: 11px;
-
+    font-size: 10px;
     font-weight: 600;
 
     letter-spacing: 2px;
 
     cursor: pointer;
+    pointer-events: auto;
 
     box-shadow:
-        0 12px 35px rgba(0,0,0,.22);
+        0 12px 35px rgba(0, 0, 0, 0.22);
 
-    transition: .4s ease;
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease,
+        color 0.3s ease,
+        box-shadow 0.3s ease;
 }
 
 #openBtn:hover {
-    transform:
-        translateX(-50%)
-        scale(1.05);
-}
-
-#openBtn:hover {
-    transform: translateX(-50%) !important;
+    transform: translateX(-50%) scale(1.04);
 
     background: #ffffff;
-
     color: #23452F;
-
-    border-color: #23452F;
 
     box-shadow:
         0 0 0 4px rgba(143, 201, 160, 0.25),
         0 15px 40px rgba(35, 69, 47, 0.25);
 }
 
-/* Mobile */
-
-@media (max-width: 600px) {
-
-    .front-page {
-
-        background-position: center;
-
-    }
-
-    .front-overlay {
-
-        padding-bottom: 16%;
-
-    }
-
-    #openBtn {
-
-        min-width: 220px;
-
-        padding:
-            15px 25px;
-
-        font-size: 10px;
-
-    }
-
-}
-/* =========================================
-   BIRTHDAY REVEAL SCREEN
-========================================= */
-
-.birthday-reveal {
-
-    position: fixed;
-
-    inset: 0;
-
-    width: 100%;
-    height: 100vh;
-    height: 100dvh;
-
-    z-index: 50;
-
-    display: flex;
-
-    justify-content: center;
-    align-items: center;
-
-    text-align: center;
-
-    overflow: hidden;
-
-    background:
-        radial-gradient(
-            circle at 50% 35%,
-            #ffffff 0%,
-            #f5fff7 25%,
-            #e1f7e7 60%,
-            #c4e9ce 100%
-        );
-
-    opacity: 0;
-
-    visibility: hidden;
-
-    transform: scale(1.06);
-
-    transition:
-        opacity 1s ease,
-        transform 1s ease,
-        visibility 1s;
-}
-
-
-.birthday-reveal.active {
-
-    opacity: 1;
-
-    visibility: visible;
-
-    transform: scale(1);
-
-}
-
 
 /* =========================================
-   CONTENT
+   PAGE 2 — BIRTHDAY REVEAL
 ========================================= */
-
-.reveal-content {
-
-    position: relative;
-
-    z-index: 10;
-
-    width: min(700px, 90vw);
-
-    display: flex;
-
-    flex-direction: column;
-
-    align-items: center;
-
-}
-
-
-/* =========================================
-   SMALL TITLE
-========================================= */
-
-.reveal-small {
-
-    font-family:
-        'Montserrat',
-        sans-serif;
-
-    font-size: 10px;
-
-    font-weight: 600;
-
-    letter-spacing: 4px;
-
-    color: #4D875D;
-
-    margin-bottom: 12px;
-
-}
-
-
-/* Decorative line */
-
-.reveal-line {
-
-    width: 55px;
-
-    height: 1px;
-
-    background: #78B58A;
-
-    margin-bottom: 20px;
-
-}
-
-
-/* =========================================
-   HAPPY BIRTHDAY
-========================================= */
-
-.reveal-content h2 {
-
-    font-family:
-        'Cormorant Garamond',
-        serif;
-
-    font-size:
-        clamp(65px, 11vw, 120px);
-
-    line-height: .72;
-
-    font-weight: 500;
-
-    color: #18231B;
-
-    margin: 0;
-
-}
-
-
-.reveal-content h2 span {
-
-    display: block;
-
-    color: #39744B;
-
-    margin-top: 8px;
-
-}
-
-
-/* =========================================
-   NAME
-========================================= */
-
-.birthday-name {
-
-    margin-top: 25px;
-
-    font-family:
-        'Cormorant Garamond',
-        serif;
-
-    font-size:
-        clamp(30px, 5vw, 45px);
-
-    font-weight: 500;
-
-    color: #315F3F;
-
-}
-
-
-/* =========================================
-   CAKE
-========================================= */
-
-.birthday-cake {
-
-    position: relative;
-
-    width: 220px;
-
-    height: 150px;
-
-    margin-top: 18px;
-
-}
-
-
-/* Cake layers */
-
-.cake-layer {
-
-    position: absolute;
-
-    left: 25px;
-
-    width: 170px;
-
-    border-radius:
-        12px 12px 18px 18px;
-
-}
-
-
-.cake-layer-one {
-
-    bottom: 15px;
-
-    height: 55px;
-
-    background:
-        linear-gradient(
-            135deg,
-            #ffffff,
-            #e9f8ed
-        );
-
-    box-shadow:
-        0 15px 35px
-        rgba(50,100,60,.18);
-
-}
-
-
-.cake-layer-two {
-
-    bottom: 62px;
-
-    height: 42px;
-
-    left: 38px;
-
-    width: 144px;
-
-    background:
-        #ffffff;
-
-    border-radius:
-        12px 12px 14px 14px;
-
-}
-
-
-/* Cake top */
-
-.birthday-cake .cake-top {
-
-    position: absolute;
-
-    bottom: 94px;
-
-    left: 30px;
-
-    width: 160px;
-
-    height: 32px;
-
-    border-radius: 50%;
-
-    background: #ffffff;
-
-    box-shadow:
-        0 4px 12px
-        rgba(50,100,60,.12);
-
-}
-
-
-/* Green decorations */
-
-.cake-decoration {
-
-    position: absolute;
-
-    bottom: 35px;
-
-    width: 17px;
-    height: 17px;
-
-    border-radius: 50%;
-
-    background: #8FC9A0;
-
-}
-
-
-.decoration-one {
-    left: 65px;
-}
-
-.decoration-two {
-    left: 101px;
-}
-
-.decoration-three {
-    left: 137px;
-}
-
-
-/* =========================================
-   CANDLES
-========================================= */
-
-.cake-candle {
-
-    position: absolute;
-
-    bottom: 110px;
-
-    width: 10px;
-
-    height: 38px;
-
-    border-radius: 5px;
-
-    background: #39744B;
-
-    z-index: 5;
-
-}
-
-
-.candle-one {
-    left: 76px;
-}
-
-.candle-two {
-    left: 105px;
-}
-
-.candle-three {
-    left: 134px;
-}
-
-
-/* Flames */
-
-.cake-flame {
-
-    position: absolute;
-
-    width: 12px;
-
-    height: 18px;
-
-    top: -17px;
-
-    left: -1px;
-
-    border-radius: 50%;
-
-    background:
-        radial-gradient(
-            ellipse at center bottom,
-            #ffffff 0%,
-            #DDF5E2 35%,
-            #7EB98C 70%,
-            transparent 72%
-        );
-
-    animation:
-        candleFlicker .8s
-        ease-in-out
-        infinite alternate;
-
-}
-
-
-@keyframes candleFlicker {
-
-    from {
-        transform:
-            scale(.8)
-            rotate(-3deg);
-    }
-
-    to {
-        transform:
-            scale(1.15)
-            rotate(3deg);
-    }
-
-}
-
-
-/* =========================================
-   MESSAGE
-========================================= */
-
-.reveal-message {
-
-    max-width: 500px;
-
-    margin-top: 4px;
-
-    font-family:
-        'Cormorant Garamond',
-        serif;
-
-    font-size:
-        clamp(19px, 3vw, 23px);
-
-    line-height: 1.4;
-
-    color: #496452;
-
-}
-
-
-/* =========================================
-   MESSAGE BUTTON
-========================================= */
-
-#messageBtn {
-
-    margin-top: 22px;
-
-    padding:
-        14px 30px;
-
-    border:
-        1px solid #315F3F;
-
-    border-radius: 50px;
-
-    background:
-        #315F3F;
-
-    color:
-        #ffffff;
-
-    font-family:
-        'Montserrat',
-        sans-serif;
-
-    font-size: 10px;
-
-    font-weight: 600;
-
-    letter-spacing: 2px;
-
-    cursor: pointer;
-
-    transition:
-        background .3s ease,
-        color .3s ease,
-        box-shadow .3s ease;
-
-}
-
-
-#messageBtn:hover {
-
-    background: #ffffff;
-
-    color: #315F3F;
-
-    box-shadow:
-        0 8px 25px
-        rgba(49,95,63,.18);
-
-}
-
-
-/* =========================================
-   FLOATING PETALS
-========================================= */
-
-.petals {
-
-    position: absolute;
-
-    inset: 0;
-
-    pointer-events: none;
-
-}
-
-
-.petals span {
-
-    position: absolute;
-
-    font-size: 20px;
-
-    color: #8FC9A0;
-
-    opacity: .45;
-
-    animation:
-        petalFloat
-        8s
-        ease-in-out
-        infinite;
-
-}
-
-
-.petals span:nth-child(1) {
-    left: 10%;
-    top: 20%;
-}
-
-.petals span:nth-child(2) {
-    left: 20%;
-    top: 70%;
-    animation-delay: 1s;
-}
-
-.petals span:nth-child(3) {
-    left: 35%;
-    top: 12%;
-    animation-delay: 2s;
-}
-
-.petals span:nth-child(4) {
-    right: 12%;
-    top: 25%;
-    animation-delay: 3s;
-}
-
-.petals span:nth-child(5) {
-    right: 20%;
-    top: 72%;
-    animation-delay: 1.5s;
-}
-
-.petals span:nth-child(6) {
-    right: 35%;
-    top: 15%;
-    animation-delay: 2.5s;
-}
-
-.petals span:nth-child(7) {
-    left: 7%;
-    bottom: 15%;
-    animation-delay: 4s;
-}
-
-.petals span:nth-child(8) {
-    right: 7%;
-    bottom: 15%;
-    animation-delay: 3.5s;
-}
-
-
-@keyframes petalFloat {
-
-    0%,
-    100% {
-
-        transform:
-            translateY(0)
-            rotate(0deg);
-
-    }
-
-    50% {
-
-        transform:
-            translateY(-30px)
-            rotate(15deg);
-
-    }
-
-}
-
-
-/* =========================================
-   MOBILE
-========================================= */
-
-@media (max-width: 600px) {
-
-    .reveal-content {
-
-        width: 92vw;
-
-    }
-
-    .reveal-content h2 {
-
-        font-size: 65px;
-
-    }
-
-    .birthday-name {
-
-        font-size: 34px;
-
-    }
-
-    .birthday-cake {
-
-        transform: scale(.85);
-
-        margin-top: 8px;
-
-    }
-
-    .reveal-message {
-
-        font-size: 19px;
-
-    }
-
-}
-/* ==============================
-   BIRTHDAY REVEAL TEST FIX
-   ============================== */
 
 #birthdayReveal {
-    position: fixed;
-    inset: 0;
-    width: 100%;
-    height: 100vh;
-    height: 100dvh;
-    z-index: 9999;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    background: linear-gradient(
-        135deg,
-        #f8fff9,
-        #e1f5e7,
-        #c9ead2
-    );
-
-    opacity: 0;
-    visibility: hidden;
-    transform: scale(1.05);
-
-    transition:
-        opacity 0.8s ease,
-        visibility 0.8s ease,
-        transform 0.8s ease;
-
-    pointer-events: none;
-}
-
-#birthdayReveal button {
-    pointer-events: auto;
-}
-/* =========================================
-   SECOND SCREEN - BIRTHDAY REVEAL
-   ========================================= */
-
-#birthdayReveal {
-    position: fixed;
-    inset: 0;
-
-    width: 100%;
-    height: 100vh;
-    height: 100dvh;
-
     z-index: 9999;
 
     background-image: url("birthday-reveal.png");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
 
     opacity: 0;
     visibility: hidden;
+    pointer-events: none;
 
     transform: scale(1.03);
 
@@ -820,17 +140,18 @@ body {
         transform 1s ease;
 }
 
-
-/* When OPEN YOUR SURPRISE is clicked */
-
 #birthdayReveal.active {
     opacity: 1;
     visibility: visible;
+    pointer-events: auto;
+
     transform: scale(1);
 }
 
 
-/* Button area */
+/* =========================================
+   PAGE 2 BUTTON
+========================================= */
 
 .birthday-reveal-overlay {
     position: absolute;
@@ -840,24 +161,20 @@ body {
     justify-content: center;
     align-items: flex-end;
 
-    padding-bottom: 0.4%;
+    padding-bottom: 2%;
 }
 
-
-/* READ MY MESSAGE button */
-
 #messageBtn {
-    border: 1px solid #2f6844;
+    padding: 14px 30px;
 
-    background: rgba(47, 104, 68, 0.95);
-    color: white;
-
-    padding: 15px 34px;
-
+    border: 1px solid #2F6844;
     border-radius: 50px;
 
+    background: rgba(47, 104, 68, 0.96);
+    color: #ffffff;
+
     font-family: 'Montserrat', sans-serif;
-    font-size: 12px;
+    font-size: 10px;
     font-weight: 600;
 
     letter-spacing: 2px;
@@ -870,59 +187,29 @@ body {
     transition:
         transform 0.3s ease,
         background 0.3s ease,
-        box-shadow 0.3s ease;
+        color 0.3s ease;
 }
-
 
 #messageBtn:hover {
-    background: white;
-    color: #2f6844;
+    background: #ffffff;
+    color: #2F6844;
 
-    transform: translateY(-4px);
-
-    box-shadow:
-        0 15px 35px rgba(35, 69, 47, 0.3);
+    transform: translateY(-3px);
 }
 
 
-/* Mobile */
-
-@media (max-width: 600px) {
-
-    #birthdayReveal {
-        background-position: center center;
-    }
-
-    .birthday-reveal-overlay {
-        padding-bottom: 7%;
-    }
-
-    #messageBtn {
-        padding: 13px 27px;
-        font-size: 10px;
-    }
-}
 /* =========================================
-   THIRD SCREEN - PERSONAL MESSAGE
-   ========================================= */
+   PAGE 3 — PERSONAL MESSAGE
+========================================= */
 
 #messageSection {
-    position: fixed;
-    inset: 0;
-
-    width: 100%;
-    height: 100vh;
-    height: 100dvh;
-
     z-index: 10000;
 
     background-image: url("message-page.png");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
 
     opacity: 0;
     visibility: hidden;
+    pointer-events: none;
 
     transform: scale(1.03);
 
@@ -932,18 +219,18 @@ body {
         transform 1s ease;
 }
 
-
-/* Show third screen */
-
 #messageSection.active {
     opacity: 1;
     visibility: visible;
+    pointer-events: auto;
 
     transform: scale(1);
 }
 
 
-/* Button position */
+/* =========================================
+   PAGE 3 BUTTON
+========================================= */
 
 .message-page-overlay {
     position: absolute;
@@ -953,27 +240,20 @@ body {
     justify-content: center;
     align-items: flex-end;
 
-    padding-bottom: 3.5%;
+    padding-bottom: 3%;
 }
 
-
-/* OUR MEMORIES button */
-
 #memoriesBtn {
-    padding: 15px 35px;
+    padding: 14px 30px;
 
-    border: 1px solid #356b45;
-
+    border: 1px solid #356B45;
     border-radius: 50px;
 
-    background: rgba(53, 107, 69, 0.95);
-
-    color: white;
+    background: rgba(53, 107, 69, 0.96);
+    color: #ffffff;
 
     font-family: 'Montserrat', sans-serif;
-
-    font-size: 11px;
-
+    font-size: 10px;
     font-weight: 600;
 
     letter-spacing: 2px;
@@ -983,60 +263,32 @@ body {
     box-shadow:
         0 10px 30px rgba(35, 69, 47, 0.25);
 
-    transition: all 0.3s ease;
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease,
+        color 0.3s ease;
 }
-
 
 #memoriesBtn:hover {
-    background: white;
+    background: #ffffff;
+    color: #356B45;
 
-    color: #356b45;
-
-    transform: translateY(-4px);
-
-    box-shadow:
-        0 15px 35px rgba(35, 69, 47, 0.3);
+    transform: translateY(-3px);
 }
 
 
-/* Mobile */
-
-@media (max-width: 600px) {
-
-    #messageSection {
-        background-position: center center;
-    }
-
-    .message-page-overlay {
-        padding-bottom: 5%;
-    }
-
-    #memoriesBtn {
-        padding: 13px 27px;
-        font-size: 10px;
-    }
-}
 /* =========================================
-   PAGE 4 - FINAL WISH
+   PAGE 4 — FINAL WISH
 ========================================= */
 
 #finalSection {
-    position: fixed;
-    inset: 0;
-
-    width: 100%;
-    height: 100vh;
-    height: 100dvh;
-
     z-index: 11000;
 
     background-image: url("final-page.png");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
 
     opacity: 0;
     visibility: hidden;
+    pointer-events: none;
 
     transform: scale(1.03);
 
@@ -1046,264 +298,17 @@ body {
         transform 1.2s ease;
 }
 
-
-/* Show final page */
-
 #finalSection.active {
     opacity: 1;
     visibility: visible;
+    pointer-events: auto;
+
     transform: scale(1);
 }
+
+
 /* =========================================
-   FINAL MOBILE OPTIMIZATION
-   ========================================= */
-
-@media (max-width: 600px) {
-
-    /* PAGE 1 */
-    .front-page {
-        background-size: cover;
-        background-position: center center;
-    }
-
-    #openBtn {
-        top: 78%;
-        min-width: 210px;
-        padding: 14px 24px;
-        font-size: 10px;
-    }
-
-
-    /* PAGE 2 */
-    #birthdayReveal {
-        background-size: cover;
-        background-position: center center;
-    }
-
-    .birthday-reveal-overlay {
-        padding-bottom: 3%;
-    }
-
-    #messageBtn {
-        padding: 13px 25px;
-        font-size: 10px;
-    }
-
-
-    /* PAGE 3 */
-    #messageSection {
-        background-size: cover;
-        background-position: center center;
-    }
-
-    .message-page-overlay {
-        padding-bottom: 5%;
-    }
-
-    #memoriesBtn {
-        padding: 13px 25px;
-        font-size: 10px;
-    }
-
-
-    /* PAGE 4 */
-    #finalSection {
-        background-size: cover;
-        background-position: center center;
-    }
-
-}
-/* =========================================
-   PHONE-FIRST FULL ARTWORK MODE
-   Shows the complete 9:16 birthday designs
-   ========================================= */
-
-@media (max-width: 600px) {
-
-    html,
-    body {
-        width: 100%;
-        height: 100%;
-        overflow: hidden;
-        background: #DDF5E2;
-    }
-
-
-    /* =====================================
-       PAGE 1 - FRONT
-    ===================================== */
-
-    .front-page {
-        width: 100%;
-        height: 100vh;
-        height: 100dvh;
-
-        background-size: contain;
-        background-position: center center;
-        background-repeat: no-repeat;
-
-        background-color: #DDF5E2;
-    }
-
-    #openBtn {
-        top: 78%;
-
-        min-width: 210px;
-        padding: 14px 24px;
-
-        font-size: 10px;
-    }
-
-
-    /* =====================================
-       PAGE 2 - BIRTHDAY REVEAL
-    ===================================== */
-
-    #birthdayReveal {
-        width: 100%;
-        height: 100vh;
-        height: 100dvh;
-
-        background-size: contain;
-        background-position: center center;
-        background-repeat: no-repeat;
-
-        background-color: #DDF5E2;
-    }
-
-    .birthday-reveal-overlay {
-        padding-bottom: 3%;
-    }
-
-    #messageBtn {
-        padding: 13px 25px;
-        font-size: 10px;
-    }
-
-
-    /* =====================================
-       PAGE 3 - PERSONAL MESSAGE
-    ===================================== */
-
-    #messageSection {
-        width: 100%;
-        height: 100vh;
-        height: 100dvh;
-
-        background-size: contain;
-        background-position: center center;
-        background-repeat: no-repeat;
-
-        background-color: #DDF5E2;
-    }
-
-    .message-page-overlay {
-        padding-bottom: 5%;
-    }
-
-    #memoriesBtn {
-        padding: 13px 25px;
-        font-size: 10px;
-    }
-
-
-    /* =====================================
-       PAGE 4 - FINAL WISH
-    ===================================== */
-
-    #finalSection {
-        width: 100%;
-        height: 100vh;
-        height: 100dvh;
-
-        background-size: contain;
-        background-position: center center;
-        background-repeat: no-repeat;
-
-        background-color: #DDF5E2;
-    }
-
-}
-/* =========================================
-   FINAL PHONE SETTINGS
-========================================= */
-
-@media (max-width: 600px) {
-
-    .front-page,
-    #birthdayReveal,
-    #messageSection,
-    #finalSection {
-        background-size: cover;
-        background-position: center center;
-        background-repeat: no-repeat;
-    }
-
-}
-/* =========================================
-   FINAL REAL-PHONE OPTIMIZATION
-========================================= */
-
-@media (max-width: 600px) {
-
-    html,
-    body {
-        width: 100%;
-        height: 100%;
-        overflow: hidden;
-        background: #DDF5E2;
-    }
-
-    .front-page,
-    #birthdayReveal,
-    #messageSection,
-    #finalSection {
-        width: 100%;
-        height: 100dvh;
-
-        background-size: contain;
-        background-position: center center;
-        background-repeat: no-repeat;
-
-        background-color: #DDF5E2;
-    }
-
-
-    /* FRONT PAGE */
-
-    #openBtn {
-        top: 78%;
-        min-width: 210px;
-        padding: 14px 24px;
-        font-size: 10px;
-    }
-
-
-    /* BIRTHDAY PAGE */
-
-    .birthday-reveal-overlay {
-        padding-bottom: 3%;
-    }
-
-    #messageBtn {
-        padding: 13px 25px;
-        font-size: 10px;
-    }
-
-
-    /* MESSAGE PAGE */
-
-    .message-page-overlay {
-        padding-bottom: 5%;
-    }
-
-    #memoriesBtn {
-        padding: 13px 25px;
-        font-size: 10px;
-    }
-}
-/* =========================================
-   FULL PHONE SCREEN - NO BLANK SPACE
+   MOBILE — PHONE FIRST
 ========================================= */
 
 @media (max-width: 600px) {
@@ -1314,53 +319,83 @@ body {
         height: 100%;
         margin: 0;
         padding: 0;
+
         overflow: hidden;
     }
+
 
     .front-page,
     #birthdayReveal,
     #messageSection,
     #finalSection {
+        position: fixed;
+
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+
         width: 100%;
+        height: 100vh;
         height: 100dvh;
+
+        margin: 0;
+        padding: 0;
 
         background-size: cover;
         background-position: center center;
         background-repeat: no-repeat;
     }
 
-}
-/* =========================================
-   REMOVE BOTTOM GAP ON REAL PHONES
-========================================= */
 
-@media (max-width: 600px) {
+    /* -----------------------------
+       FRONT PAGE BUTTON
+    ----------------------------- */
 
-    html,
-    body {
-        margin: 0 !important;
-        padding: 0 !important;
-        width: 100%;
-        height: 100%;
-        overflow: hidden;
+    #openBtn {
+        top: 78%;
+
+        min-width: 210px;
+
+        padding: 14px 24px;
+
+        font-size: 10px;
     }
 
-    .front-page,
-    #birthdayReveal,
-    #messageSection,
+
+    /* -----------------------------
+       BIRTHDAY BUTTON
+    ----------------------------- */
+
+    .birthday-reveal-overlay {
+        padding-bottom: 3%;
+    }
+
+    #messageBtn {
+        padding: 13px 25px;
+        font-size: 10px;
+    }
+
+
+    /* -----------------------------
+       MESSAGE BUTTON
+    ----------------------------- */
+
+    .message-page-overlay {
+        padding-bottom: 5%;
+    }
+
+    #memoriesBtn {
+        padding: 13px 25px;
+        font-size: 10px;
+    }
+
+
+    /* -----------------------------
+       FINAL PAGE
+    ----------------------------- */
+
     #finalSection {
-        position: fixed !important;
-        inset: 0 !important;
-
-        width: 100% !important;
-        height: 100dvh !important;
-
-        margin: 0 !important;
-        padding: 0 !important;
-
-        background-size: cover !important;
-        background-position: center center !important;
-        background-repeat: no-repeat !important;
+        background-position: center center;
     }
-
 }
