@@ -2,13 +2,12 @@
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
 
     <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+          content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
-    <title>Happy Birthday Harshitha </title>
+    <title>For Harshitha 💚</title>
 
     <link rel="stylesheet" href="style.css">
 
@@ -16,91 +15,96 @@
           href="https://fonts.googleapis.com">
 
     <link rel="preconnect"
-          href="https://fonts.gstatic.com"
+          href="https://fonts.googleapis.com"
           crossorigin>
 
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@400;500;600&display=swap"
           rel="stylesheet">
-
 </head>
-
 
 <body>
 
+    <!-- =====================================
+         PAGE 1 — FRONT PAGE
+    ====================================== -->
 
-    <!-- =========================================
-         PAGE 1 - FRONT PAGE
-    ========================================= -->
+    <section class="page front-page">
 
-    <section class="front-page">
+        <img src="background.png"
+             class="page-image"
+             alt="Birthday invitation">
 
-        <div class="front-overlay">
-
+        <div class="page-content">
             <button id="openBtn">
                 OPEN YOUR SURPRISE ♥
             </button>
-
         </div>
 
     </section>
 
 
+    <!-- =====================================
+         PAGE 2 — BIRTHDAY REVEAL
+    ====================================== -->
 
-    <!-- =========================================
-         PAGE 2 - BIRTHDAY REVEAL
-    ========================================= -->
+    <section id="birthdayReveal" class="page birthday-reveal">
 
-    <section id="birthdayReveal" class="birthday-reveal">
+        <img src="birthday-reveal.png"
+             class="page-image"
+             alt="Happy Birthday Harshitha">
 
-        <div class="birthday-reveal-overlay">
-
+        <div class="page-content">
             <button id="messageBtn">
                 READ MY MESSAGE ♥
             </button>
-
         </div>
 
     </section>
 
 
+    <!-- =====================================
+         PAGE 3 — PERSONAL MESSAGE
+    ====================================== -->
 
-    <!-- =========================================
-         PAGE 3 - PERSONAL MESSAGE
-    ========================================= -->
+    <section id="messageSection" class="page message-section">
 
-    <section id="messageSection" class="message-section">
+        <img src="message-page.png"
+             class="page-image"
+             alt="Birthday message">
 
-        <div class="message-page-overlay">
-             <button id="memoriesBtn">
-            AND.. FINALLY
-        </button>
-            
-
+        <div class="page-content">
+            <button id="memoriesBtn">
+                OUR MEMORIES ♥
+            </button>
         </div>
 
     </section>
-<!-- =========================================
-     PAGE 4 - FINAL WISH
-========================================= -->
 
-    <section id="finalSection" class="final-section">
+
+    <!-- =====================================
+         PAGE 4 — FINAL WISH
+    ====================================== -->
+
+    <section id="finalSection" class="page final-section">
+
+        <img src="final-page.png"
+             class="page-image"
+             alt="One last birthday wish">
 
     </section>
-<audio id="birthdayMusic" loop>
-    <source src="assets/music/birthday.mp3" type="audio/mpeg">
-</audio>
 
 
+    <!-- =====================================
+         BACKGROUND MUSIC
+    ====================================== -->
 
-
-    <!-- =========================================
-         JAVASCRIPT
-    ========================================= -->
+    <audio id="birthdayMusic" loop>
+        <source src="assets/music/birthday.mp3"
+                type="audio/mpeg">
+    </audio>
 
 
     <script src="script.js"></script>
 
-
 </body>
-
 </html>

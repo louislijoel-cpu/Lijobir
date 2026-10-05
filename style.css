@@ -22,61 +22,75 @@ body {
 
 
 /* =========================================
-   COMMON FULL SCREEN
+   COMMON FULL-SCREEN PAGE
 ========================================= */
 
-.front-page,
-#birthdayReveal,
-#messageSection,
-#finalSection {
+.page {
     position: fixed;
 
     top: 0;
     left: 0;
+    right: 0;
+    bottom: 0;
+
     width: 100%;
-    height: 100vh;
-    height: 100dvh;
-
-    margin: 0;
-    padding: 0;
-
-    background-repeat: no-repeat;
-
-    /*
-       IMPORTANT:
-       The artwork fills the complete screen.
-    */
-    background-size: 100% 100%;
-    background-position: center center;
+    height: 100%;
 
     overflow: hidden;
+
+    background: #DDF5E2;
 }
 
 
 /* =========================================
-   PAGE 1 — FRONT PAGE
+   IMAGE — FULL SCREEN
 ========================================= */
 
-.front-page {
-    z-index: 1;
-
-    background-image: url("background.png");
-}
-
-
-/* =========================================
-   PAGE 1 — OPEN BUTTON
-========================================= */
-
-.front-overlay {
+.page-image {
     position: absolute;
-    inset: 0;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+    object-position: center center;
+}
+
+
+/* =========================================
+   CONTENT LAYER
+========================================= */
+
+.page-content {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    width: 100%;
+    height: 100%;
 
     display: flex;
     justify-content: center;
     align-items: flex-end;
 
     pointer-events: none;
+}
+
+
+/* =========================================
+   PAGE 1
+========================================= */
+
+.front-page {
+    z-index: 1;
 }
 
 #openBtn {
@@ -87,9 +101,9 @@ body {
 
     transform: translateX(-50%);
 
-    min-width: 210px;
+    min-width: 220px;
 
-    padding: 14px 24px;
+    padding: 15px 28px;
 
     border: 2px solid #ffffff;
     border-radius: 50px;
@@ -98,12 +112,14 @@ body {
     color: #ffffff;
 
     font-family: 'Montserrat', sans-serif;
+
     font-size: 10px;
     font-weight: 600;
 
     letter-spacing: 2px;
 
     cursor: pointer;
+
     pointer-events: auto;
 
     box-shadow:
@@ -117,7 +133,9 @@ body {
 }
 
 #openBtn:hover {
-    transform: translateX(-50%) scale(1.04);
+    transform:
+        translateX(-50%)
+        scale(1.04);
 
     background: #ffffff;
     color: #23452F;
@@ -129,49 +147,45 @@ body {
 
 
 /* =========================================
-   PAGE 2 — BIRTHDAY REVEAL
+   PAGE 2
 ========================================= */
 
 #birthdayReveal {
-    z-index: 9999;
 
-    background-image: url("birthday-reveal.png");
+    z-index: 9999;
 
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
 
-    transform: scale(1);
+    transform: scale(1.03);
 
     transition:
         opacity 1s ease,
-        visibility 1s ease;
+        visibility 1s ease,
+        transform 1s ease;
 }
 
 #birthdayReveal.active {
+
     opacity: 1;
     visibility: visible;
     pointer-events: auto;
+
+    transform: scale(1);
 }
 
-
-/* =========================================
-   PAGE 2 — MESSAGE BUTTON
-========================================= */
-
-.birthday-reveal-overlay {
-    position: absolute;
-    inset: 0;
-
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-
-    padding-bottom: 3%;
-}
 
 #messageBtn {
-    padding: 13px 25px;
+
+    position: absolute;
+
+    left: 50%;
+    bottom: 3%;
+
+    transform: translateX(-50%);
+
+    padding: 14px 30px;
 
     border: 1px solid #2F6844;
     border-radius: 50px;
@@ -180,6 +194,7 @@ body {
     color: #ffffff;
 
     font-family: 'Montserrat', sans-serif;
+
     font-size: 10px;
     font-weight: 600;
 
@@ -197,57 +212,56 @@ body {
 }
 
 #messageBtn:hover {
+
     background: #ffffff;
     color: #2F6844;
 
-    transform: translateY(-3px);
+    transform:
+        translateX(-50%)
+        translateY(-3px);
 }
 
 
 /* =========================================
-   PAGE 3 — PERSONAL MESSAGE
+   PAGE 3
 ========================================= */
 
 #messageSection {
-    z-index: 10000;
 
-    background-image: url("message-page.png");
+    z-index: 10000;
 
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
 
-    transform: scale(1);
+    transform: scale(1.03);
 
     transition:
         opacity 1s ease,
-        visibility 1s ease;
+        visibility 1s ease,
+        transform 1s ease;
 }
 
 #messageSection.active {
+
     opacity: 1;
     visibility: visible;
     pointer-events: auto;
+
+    transform: scale(1);
 }
 
-
-/* =========================================
-   PAGE 3 — MEMORIES BUTTON
-========================================= */
-
-.message-page-overlay {
-    position: absolute;
-    inset: 0;
-
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-
-    padding-bottom: 3%;
-}
 
 #memoriesBtn {
-    padding: 13px 25px;
+
+    position: absolute;
+
+    left: 50%;
+    bottom: 5%;
+
+    transform: translateX(-50%);
+
+    padding: 14px 30px;
 
     border: 1px solid #356B45;
     border-radius: 50px;
@@ -256,6 +270,7 @@ body {
     color: #ffffff;
 
     font-family: 'Montserrat', sans-serif;
+
     font-size: 10px;
     font-weight: 600;
 
@@ -273,42 +288,48 @@ body {
 }
 
 #memoriesBtn:hover {
+
     background: #ffffff;
     color: #356B45;
 
-    transform: translateY(-3px);
+    transform:
+        translateX(-50%)
+        translateY(-3px);
 }
 
 
 /* =========================================
-   PAGE 4 — FINAL WISH
+   PAGE 4
 ========================================= */
 
 #finalSection {
-    z-index: 11000;
 
-    background-image: url("final-page.png");
+    z-index: 11000;
 
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
 
-    transform: scale(1);
+    transform: scale(1.03);
 
     transition:
         opacity 1.2s ease,
-        visibility 1.2s ease;
+        visibility 1.2s ease,
+        transform 1.2s ease;
 }
 
 #finalSection.active {
+
     opacity: 1;
     visibility: visible;
     pointer-events: auto;
+
+    transform: scale(1);
 }
 
 
 /* =========================================
-   PHONE / MOBILE
+   MOBILE
 ========================================= */
 
 @media (max-width: 600px) {
@@ -317,23 +338,10 @@ body {
     body {
         width: 100%;
         height: 100%;
-
-        margin: 0;
-        padding: 0;
-
         overflow: hidden;
     }
 
-
-    /*
-       All four 9:16 images fill the
-       complete phone screen.
-    */
-
-    .front-page,
-    #birthdayReveal,
-    #messageSection,
-    #finalSection {
+    .page {
 
         position: fixed;
 
@@ -341,32 +349,30 @@ body {
         left: 0;
 
         width: 100%;
-        height: 100vh;
-        height: 100dvh;
-
-        margin: 0;
-        padding: 0;
-
-        /*
-           This is the important fix.
-           It removes the empty area.
-        */
-        background-size: 100% 100%;
-
-        background-position: center center;
-        background-repeat: no-repeat;
+        height: 100%;
 
         overflow: hidden;
     }
 
+    .page-image {
 
-    /* -----------------------------------------
-       PAGE 1 BUTTON
-    ----------------------------------------- */
+        position: absolute;
+
+        top: 0;
+        left: 0;
+
+        width: 100%;
+        height: 100%;
+
+        object-fit: cover;
+        object-position: center center;
+
+        display: block;
+    }
 
     #openBtn {
-        left: 50%;
-        top: 82%;
+
+        top: 78%;
 
         min-width: 210px;
 
@@ -375,61 +381,21 @@ body {
         font-size: 10px;
     }
 
-
-    /* -----------------------------------------
-       PAGE 2 BUTTON
-    ----------------------------------------- */
-
-    .birthday-reveal-overlay {
-        padding-bottom: 3%;
-    }
-
     #messageBtn {
+
+        bottom: 3%;
+
         padding: 13px 25px;
+
         font-size: 10px;
     }
 
-
-    /* -----------------------------------------
-       PAGE 3 BUTTON
-    ----------------------------------------- */
-
-    .message-page-overlay {
-        padding-bottom: 3%;
-    }
-
     #memoriesBtn {
+
+        bottom: 5%;
+
         padding: 13px 25px;
+
         font-size: 10px;
-    }
-
-
-    /* -----------------------------------------
-       PAGE 4
-    ----------------------------------------- */
-
-    #finalSection {
-        background-size: 100% 100%;
-        background-position: center center;
-    }
-}
-
-
-/* =========================================
-   VERY SMALL PHONES
-========================================= */
-
-@media (max-width: 380px) {
-
-    #openBtn {
-        min-width: 190px;
-        padding: 13px 20px;
-        font-size: 9px;
-    }
-
-    #messageBtn,
-    #memoriesBtn {
-        padding: 12px 21px;
-        font-size: 9px;
     }
 }
