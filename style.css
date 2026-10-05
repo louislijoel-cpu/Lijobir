@@ -27,11 +27,7 @@ body {
 
 .page {
     position: fixed;
-
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    inset: 0;
 
     width: 100%;
     height: 100%;
@@ -43,14 +39,12 @@ body {
 
 
 /* =========================================
-   IMAGE — FULL SCREEN
+   FULL-SCREEN IMAGE
 ========================================= */
 
 .page-image {
     position: absolute;
-
-    top: 0;
-    left: 0;
+    inset: 0;
 
     width: 100%;
     height: 100%;
@@ -59,43 +53,63 @@ body {
 
     object-fit: cover;
     object-position: center center;
+
+    /*
+       The image should never block
+       button clicks.
+    */
+    pointer-events: none;
+
+    z-index: 1;
 }
 
 
 /* =========================================
-   CONTENT LAYER
+   CONTENT / BUTTON LAYER
 ========================================= */
 
 .page-content {
     position: absolute;
-
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    inset: 0;
 
     width: 100%;
     height: 100%;
 
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
+    z-index: 100;
 
     pointer-events: none;
 }
 
 
+/* All buttons must receive touch/click */
+
+.page-content button {
+    position: absolute;
+
+    z-index: 9999;
+
+    pointer-events: auto;
+
+    touch-action: manipulation;
+
+    -webkit-tap-highlight-color: transparent;
+
+    cursor: pointer;
+}
+
+
 /* =========================================
-   PAGE 1
+   PAGE 1 — FRONT PAGE
 ========================================= */
 
 .front-page {
     z-index: 1;
 }
 
-#openBtn {
-    position: absolute;
 
+/* Front page button */
+
+#openBtn {
     left: 50%;
     top: 78%;
 
@@ -117,10 +131,6 @@ body {
     font-weight: 600;
 
     letter-spacing: 2px;
-
-    cursor: pointer;
-
-    pointer-events: auto;
 
     box-shadow:
         0 12px 35px rgba(0, 0, 0, 0.22);
@@ -147,15 +157,15 @@ body {
 
 
 /* =========================================
-   PAGE 2
+   PAGE 2 — BIRTHDAY REVEAL
 ========================================= */
 
 #birthdayReveal {
-
     z-index: 9999;
 
     opacity: 0;
     visibility: hidden;
+
     pointer-events: none;
 
     transform: scale(1.03);
@@ -167,19 +177,18 @@ body {
 }
 
 #birthdayReveal.active {
-
     opacity: 1;
     visibility: visible;
+
     pointer-events: auto;
 
     transform: scale(1);
 }
 
 
+/* READ MY MESSAGE button */
+
 #messageBtn {
-
-    position: absolute;
-
     left: 50%;
     bottom: 3%;
 
@@ -200,8 +209,6 @@ body {
 
     letter-spacing: 2px;
 
-    cursor: pointer;
-
     box-shadow:
         0 10px 30px rgba(35, 69, 47, 0.25);
 
@@ -212,7 +219,6 @@ body {
 }
 
 #messageBtn:hover {
-
     background: #ffffff;
     color: #2F6844;
 
@@ -223,15 +229,15 @@ body {
 
 
 /* =========================================
-   PAGE 3
+   PAGE 3 — PERSONAL MESSAGE
 ========================================= */
 
 #messageSection {
-
     z-index: 10000;
 
     opacity: 0;
     visibility: hidden;
+
     pointer-events: none;
 
     transform: scale(1.03);
@@ -243,19 +249,18 @@ body {
 }
 
 #messageSection.active {
-
     opacity: 1;
     visibility: visible;
+
     pointer-events: auto;
 
     transform: scale(1);
 }
 
 
+/* OUR MEMORIES button */
+
 #memoriesBtn {
-
-    position: absolute;
-
     left: 50%;
     bottom: 5%;
 
@@ -276,8 +281,6 @@ body {
 
     letter-spacing: 2px;
 
-    cursor: pointer;
-
     box-shadow:
         0 10px 30px rgba(35, 69, 47, 0.25);
 
@@ -288,7 +291,6 @@ body {
 }
 
 #memoriesBtn:hover {
-
     background: #ffffff;
     color: #356B45;
 
@@ -299,15 +301,15 @@ body {
 
 
 /* =========================================
-   PAGE 4
+   PAGE 4 — FINAL WISH
 ========================================= */
 
 #finalSection {
-
     z-index: 11000;
 
     opacity: 0;
     visibility: hidden;
+
     pointer-events: none;
 
     transform: scale(1.03);
@@ -319,9 +321,9 @@ body {
 }
 
 #finalSection.active {
-
     opacity: 1;
     visibility: visible;
+
     pointer-events: auto;
 
     transform: scale(1);
@@ -342,11 +344,8 @@ body {
     }
 
     .page {
-
         position: fixed;
-
-        top: 0;
-        left: 0;
+        inset: 0;
 
         width: 100%;
         height: 100%;
@@ -355,23 +354,24 @@ body {
     }
 
     .page-image {
-
         position: absolute;
-
-        top: 0;
-        left: 0;
+        inset: 0;
 
         width: 100%;
         height: 100%;
 
+        display: block;
+
         object-fit: cover;
         object-position: center center;
 
-        display: block;
+        pointer-events: none;
     }
 
-    #openBtn {
 
+    /* Front button */
+
+    #openBtn {
         top: 78%;
 
         min-width: 210px;
@@ -381,8 +381,10 @@ body {
         font-size: 10px;
     }
 
-    #messageBtn {
 
+    /* Page 2 button */
+
+    #messageBtn {
         bottom: 3%;
 
         padding: 13px 25px;
@@ -390,53 +392,14 @@ body {
         font-size: 10px;
     }
 
-    #memoriesBtn {
 
+    /* Page 3 button */
+
+    #memoriesBtn {
         bottom: 5%;
 
         padding: 13px 25px;
 
         font-size: 10px;
     }
-}
-/* =========================================
-   FIX BUTTON CLICK / LAYERING
-========================================= */
-
-.page-content {
-    position: absolute;
-    inset: 0;
-    z-index: 50;
-    pointer-events: none;
-}
-
-.page-content button {
-    position: absolute;
-    z-index: 100;
-    pointer-events: auto;
-    touch-action: manipulation;
-}
-
-
-/* PAGE 1 BUTTON */
-#openBtn {
-    left: 50%;
-    top: 78%;
-    transform: translateX(-50%);
-}
-
-
-/* PAGE 2 BUTTON */
-#messageBtn {
-    left: 50%;
-    bottom: 3%;
-    transform: translateX(-50%);
-}
-
-
-/* PAGE 3 BUTTON */
-#memoriesBtn {
-    left: 50%;
-    bottom: 5%;
-    transform: translateX(-50%);
 }
