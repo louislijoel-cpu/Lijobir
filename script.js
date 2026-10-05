@@ -1,15 +1,28 @@
 document.addEventListener("DOMContentLoaded", function () {
 
-    const openBtn = document.getElementById("openBtn");
-    const birthdayReveal = document.getElementById("birthdayReveal");
+    const openBtn =
+        document.getElementById("openBtn");
 
-    const messageBtn = document.getElementById("messageBtn");
-    const messageSection = document.getElementById("messageSection");
+    const birthdayReveal =
+        document.getElementById("birthdayReveal");
 
-    const memoriesBtn = document.getElementById("memoriesBtn");
-    const finalSection = document.getElementById("finalSection");
+    const messageBtn =
+        document.getElementById("messageBtn");
 
-    const birthdayMusic = document.getElementById("birthdayMusic");
+    const messageSection =
+        document.getElementById("messageSection");
+
+    const memoriesBtn =
+        document.getElementById("memoriesBtn");
+
+    const finalSection =
+        document.getElementById("finalSection");
+
+    const lastSection =
+        document.getElementById("lastSection");
+
+    const birthdayMusic =
+        document.getElementById("birthdayMusic");
 
 
     /* =========================================
@@ -27,7 +40,10 @@ document.addEventListener("DOMContentLoaded", function () {
                 birthdayMusic.volume = 0.45;
 
                 birthdayMusic.play().catch(function (error) {
-                    console.log("Music could not start:", error);
+                    console.log(
+                        "Music could not start:",
+                        error
+                    );
                 });
 
             }
@@ -37,34 +53,21 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
- /* =========================================
-   PAGE 2 → PAGE 3
-========================================= */
+    /* =========================================
+       PAGE 2 → PAGE 3
+    ========================================= */
 
-if (messageBtn && birthdayReveal && messageSection) {
+    if (messageBtn && birthdayReveal && messageSection) {
 
-    messageBtn.addEventListener("click", function (event) {
+        messageBtn.addEventListener("click", function () {
 
-        event.preventDefault();
-        event.stopPropagation();
+            birthdayReveal.classList.remove("active");
 
-        birthdayReveal.classList.remove("active");
+            messageSection.classList.add("active");
 
-        messageSection.classList.add("active");
+        });
 
-        /* Force Page 3 to become visible */
-        messageSection.style.opacity = "1";
-        messageSection.style.visibility = "visible";
-        messageSection.style.pointerEvents = "auto";
-
-        /* Hide Page 2 completely */
-        birthdayReveal.style.opacity = "0";
-        birthdayReveal.style.visibility = "hidden";
-        birthdayReveal.style.pointerEvents = "none";
-
-    });
-
-}
+    }
 
 
     /* =========================================
@@ -78,6 +81,24 @@ if (messageBtn && birthdayReveal && messageSection) {
             messageSection.classList.remove("active");
 
             finalSection.classList.add("active");
+
+
+            /* =====================================
+               PAGE 4 → PAGE 5 AUTOMATICALLY
+               Wait 7 seconds
+            ===================================== */
+
+            if (lastSection) {
+
+                setTimeout(function () {
+
+                    finalSection.classList.remove("active");
+
+                    lastSection.classList.add("active");
+
+                }, 7000);
+
+            }
 
         });
 

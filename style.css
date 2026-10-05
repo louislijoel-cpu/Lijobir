@@ -403,3 +403,31 @@ body {
         font-size: 10px;
     }
 }
+/* =========================================
+   PAGE 5 — FINAL FRIENDSHIP WISH
+========================================= */
+
+#lastSection {
+    z-index: 12000;
+
+    opacity: 0;
+    visibility: hidden;
+
+    pointer-events: none;
+
+    transform: scale(1.03);
+
+    transition:
+        opacity 1.5s ease,
+        visibility 1.5s ease,
+        transform 1.5s ease;
+}
+
+#lastSection.active {
+    opacity: 1;
+    visibility: visible;
+
+    pointer-events: auto;
+
+    transform: scale(1);
+}
