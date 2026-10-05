@@ -1,28 +1,17 @@
 document.addEventListener("DOMContentLoaded", function () {
 
-    const openBtn =
-        document.getElementById("openBtn");
+    const openBtn = document.getElementById("openBtn");
+    const birthdayReveal = document.getElementById("birthdayReveal");
 
-    const birthdayReveal =
-        document.getElementById("birthdayReveal");
+    const messageBtn = document.getElementById("messageBtn");
+    const messageSection = document.getElementById("messageSection");
 
-    const messageBtn =
-        document.getElementById("messageBtn");
+    const memoriesBtn = document.getElementById("memoriesBtn");
+    const finalSection = document.getElementById("finalSection");
 
-    const messageSection =
-        document.getElementById("messageSection");
+    const lastSection = document.getElementById("lastSection");
 
-    const memoriesBtn =
-        document.getElementById("memoriesBtn");
-
-    const finalSection =
-        document.getElementById("finalSection");
-
-    const lastSection =
-        document.getElementById("lastSection");
-
-    const birthdayMusic =
-        document.getElementById("birthdayMusic");
+    const birthdayMusic = document.getElementById("birthdayMusic");
 
 
     /* =========================================
@@ -36,16 +25,11 @@ document.addEventListener("DOMContentLoaded", function () {
             birthdayReveal.classList.add("active");
 
             if (birthdayMusic) {
-
                 birthdayMusic.volume = 0.45;
 
                 birthdayMusic.play().catch(function (error) {
-                    console.log(
-                        "Music could not start:",
-                        error
-                    );
+                    console.log("Music could not start:", error);
                 });
-
             }
 
         });
@@ -82,11 +66,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
             finalSection.classList.add("active");
 
-
-            /* =====================================
-               PAGE 4 → PAGE 5 AUTOMATICALLY
-               Wait 7 seconds
-            ===================================== */
+            /*
+             * PAGE 4 → PAGE 5
+             * Automatically after 7 seconds
+             */
 
             if (lastSection) {
 
