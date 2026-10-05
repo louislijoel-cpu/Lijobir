@@ -1330,3 +1330,37 @@ body {
     }
 
 }
+/* =========================================
+   REMOVE BOTTOM GAP ON REAL PHONES
+========================================= */
+
+@media (max-width: 600px) {
+
+    html,
+    body {
+        margin: 0 !important;
+        padding: 0 !important;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+    }
+
+    .front-page,
+    #birthdayReveal,
+    #messageSection,
+    #finalSection {
+        position: fixed !important;
+        inset: 0 !important;
+
+        width: 100% !important;
+        height: 100dvh !important;
+
+        margin: 0 !important;
+        padding: 0 !important;
+
+        background-size: cover !important;
+        background-position: center center !important;
+        background-repeat: no-repeat !important;
+    }
+
+}
