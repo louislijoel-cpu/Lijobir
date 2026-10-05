@@ -425,3 +425,19 @@ body {
     }
 
 }
+/* =========================================
+   PHONE — REMOVE EMPTY EDGES
+========================================= */
+
+@media (max-width: 600px) {
+
+    .front-page,
+    #birthdayReveal,
+    #messageSection,
+    #finalSection {
+        background-size: auto 104% !important;
+        background-position: center center !important;
+        background-repeat: no-repeat !important;
+    }
+
+}
