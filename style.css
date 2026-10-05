@@ -399,3 +399,44 @@ body {
         font-size: 10px;
     }
 }
+/* =========================================
+   FIX BUTTON CLICK / LAYERING
+========================================= */
+
+.page-content {
+    position: absolute;
+    inset: 0;
+    z-index: 50;
+    pointer-events: none;
+}
+
+.page-content button {
+    position: absolute;
+    z-index: 100;
+    pointer-events: auto;
+    touch-action: manipulation;
+}
+
+
+/* PAGE 1 BUTTON */
+#openBtn {
+    left: 50%;
+    top: 78%;
+    transform: translateX(-50%);
+}
+
+
+/* PAGE 2 BUTTON */
+#messageBtn {
+    left: 50%;
+    bottom: 3%;
+    transform: translateX(-50%);
+}
+
+
+/* PAGE 3 BUTTON */
+#memoriesBtn {
+    left: 50%;
+    bottom: 5%;
+    transform: translateX(-50%);
+}

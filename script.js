@@ -37,21 +37,34 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
-    /* =========================================
-       PAGE 2 → PAGE 3
-    ========================================= */
+ /* =========================================
+   PAGE 2 → PAGE 3
+========================================= */
 
-    if (messageBtn && birthdayReveal && messageSection) {
+if (messageBtn && birthdayReveal && messageSection) {
 
-        messageBtn.addEventListener("click", function () {
+    messageBtn.addEventListener("click", function (event) {
 
-            birthdayReveal.classList.remove("active");
+        event.preventDefault();
+        event.stopPropagation();
 
-            messageSection.classList.add("active");
+        birthdayReveal.classList.remove("active");
 
-        });
+        messageSection.classList.add("active");
 
-    }
+        /* Force Page 3 to become visible */
+        messageSection.style.opacity = "1";
+        messageSection.style.visibility = "visible";
+        messageSection.style.pointerEvents = "auto";
+
+        /* Hide Page 2 completely */
+        birthdayReveal.style.opacity = "0";
+        birthdayReveal.style.visibility = "hidden";
+        birthdayReveal.style.pointerEvents = "none";
+
+    });
+
+}
 
 
     /* =========================================
